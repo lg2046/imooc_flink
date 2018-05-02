@@ -1,0 +1,201 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jd</groupId>
+    <artifactId>jd_spark_es</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <scala.version>2.11.8</scala.version>
+        <spark.version>2.1.0</spark.version>
+        <jdq.version>1.0.4</jdq.version>
+
+        <plugin.maven.compiler.version>3.1</plugin.maven.compiler.version>
+        <plugin.maven.jar.version>2.4</plugin.maven.jar.version>
+        <plugin.maven.scala.version>2.15.2</plugin.maven.scala.version>
+        <plugin.maven.dependency.version>2.8</plugin.maven.dependency.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- scala and spark begin -->
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <scope>provided</scope>
+            <version>${scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_2.11</artifactId>
+            <scope>provided</scope>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <scope>provided</scope>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <scope>provided</scope>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.29</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <scope>provided</scope>
+            <version>${spark.version}</version>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>com.bdp</groupId>
+            <artifactId>spark-streaming-jdq-2_2.10</artifactId>
+            <version>${jdq.version}</version>
+            <exclusions>
+                <exclusion>  &lt;!&ndash; declare the exclusion here &ndash;&gt;
+                    <groupId>org.scala-lang</groupId>
+                    <artifactId>scala-library</artifactId>
+                </exclusion>
+                <exclusion>  &lt;!&ndash; declare the exclusion here &ndash;&gt;
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-streaming_2.11</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>-->
+        <!-- scala and spark end -->
+
+        <!--joda convert 解决joda对象序列化时的问题-->
+       <!-- <dependency>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-convert</artifactId>
+            <version>1.8.1</version>
+        </dependency>-->
+
+        <!-- jd-redis客户端依赖 start -->
+        <!--<dependency>-->
+            <!--<groupId>com.jd.jim.cli</groupId>-->
+            <!--<artifactId>jim-cli-jedis</artifactId>-->
+            <!--<version>1.4.5-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.jd.jim.cli</groupId>-->
+            <!--<artifactId>jim-cli-api</artifactId>-->
+            <!--<version>1.4.5-SNAPSHOT</version>-->
+        <!--</dependency>-->
+        <!-- jd-redis客户端依赖 end -->
+
+        <!--jd oss -->
+        <!--<dependency>-->
+        <!--<groupId>com.jcloud</groupId>-->
+        <!--<artifactId>jss-sdk-java</artifactId>-->
+        <!--<version>1.2.0-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
+        <!-- Elasticsearch -->
+        <dependency>
+            <groupId>my.elasticsearch</groupId>
+            <artifactId>es-shaded</artifactId>
+            <version>1.1-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sksamuel.elastic4s</groupId>
+            <artifactId>elastic4s_h21_2.11</artifactId>
+           <!-- elastic4s-core_2.12-->
+            <version>1.0</version>
+            <exclusions>
+                <exclusion>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                </exclusion>
+                <exclusion>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- ES END -->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${plugin.maven.compiler.version}</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>${plugin.maven.scala.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${plugin.maven.jar.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${plugin.maven.dependency.version}</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
