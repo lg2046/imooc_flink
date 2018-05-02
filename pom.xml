@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jd</groupId>
-    <artifactId>jd_spark_es</artifactId>
+    <artifactId>jd_spark_starter</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -107,34 +107,34 @@
         <!--</dependency>-->
 
         <!-- Elasticsearch -->
-        <dependency>
-            <groupId>my.elasticsearch</groupId>
-            <artifactId>es-shaded</artifactId>
-            <version>1.1-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                <groupId>org.elasticsearch</groupId>
-                <artifactId>elasticsearch</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>my.elasticsearch</groupId>-->
+            <!--<artifactId>es-shaded</artifactId>-->
+            <!--<version>1.1-SNAPSHOT</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                <!--<groupId>org.elasticsearch</groupId>-->
+                <!--<artifactId>elasticsearch</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.sksamuel.elastic4s</groupId>
-            <artifactId>elastic4s_h21_2.11</artifactId>
-           <!-- elastic4s-core_2.12-->
-            <version>1.0</version>
-            <exclusions>
-                <exclusion>
-                <groupId>org.scala-lang</groupId>
-                <artifactId>scala-library</artifactId>
-                </exclusion>
-                <exclusion>
-                <groupId>org.elasticsearch</groupId>
-                <artifactId>elasticsearch</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.sksamuel.elastic4s</groupId>-->
+            <!--<artifactId>elastic4s_h21_2.11</artifactId>-->
+           <!--&lt;!&ndash; elastic4s-core_2.12&ndash;&gt;-->
+            <!--<version>1.0</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                <!--<groupId>org.scala-lang</groupId>-->
+                <!--<artifactId>scala-library</artifactId>-->
+                <!--</exclusion>-->
+                <!--<exclusion>-->
+                <!--<groupId>org.elasticsearch</groupId>-->
+                <!--<artifactId>elasticsearch</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
         <!-- ES END -->
 
     </dependencies>
