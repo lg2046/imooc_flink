@@ -1,5 +1,6 @@
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.streaming.api.scala._
+import org.apache.flink.streaming.api.windowing.time.Time
 
 object Parameter {
   def main(args: Array[String]): Unit = {
@@ -18,6 +19,10 @@ object Parameter {
     val dStream = env
       .socketTextStream("localhost", 9999)
       .flatMap(_.split("\\s+"))
+      .keyBy(0)
+      .timeWindow(Time.seconds(5))
+      .sum("a")
+      .uid("timeWin-sum-5")
 
     dStream.print()
 
