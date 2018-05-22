@@ -1,5 +1,7 @@
+package basic
+
 import org.apache.flink.api.java.utils.ParameterTool
-import org.apache.flink.streaming.api.scala._
+import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 import org.apache.flink.streaming.api.windowing.time.Time
 
 object Parameter {

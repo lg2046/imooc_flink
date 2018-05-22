@@ -1,3 +1,5 @@
+package basic
+
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.api.common.state.{ValueState, ValueStateDescriptor}
 import org.apache.flink.api.java.utils.ParameterTool

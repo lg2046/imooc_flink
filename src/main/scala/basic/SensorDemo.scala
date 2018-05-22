@@ -1,3 +1,5 @@
+//package basic
+//
 //import org.apache.flink.api.common.functions.Partitioner
 //import org.apache.flink.streaming.api.TimeCharacteristic
 //import org.apache.flink.streaming.api.functions.source.SourceFunction

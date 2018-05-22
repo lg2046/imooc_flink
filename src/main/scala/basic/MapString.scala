@@ -1,4 +1,6 @@
-import org.apache.flink.streaming.api.scala._
+package basic
+
+import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment
 
 object MapString {
   def main(args: Array[String]): Unit = {
