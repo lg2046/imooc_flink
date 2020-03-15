@@ -1,4 +1,4 @@
-package imooc
+package flink_book
 
 import org.apache.flink.api.java.utils.ParameterTool
 import org.apache.flink.api.scala._
@@ -17,7 +17,7 @@ object CustomDataSource {
     val port = if (params.has("port")) params.getInt("port") else 9999
 
     val env = StreamExecutionEnvironment.getExecutionEnvironment
-    env.setParallelism(1)
+    env.setParallelism(2)
 
     //SourceFunction非并发数据源
     env.fromElements(1, 2, 3, 4, 5, 6).keyBy(v => 1).countWindow(3).process(new ProcessWindowFunction[Int, Int, Int, GlobalWindow] {

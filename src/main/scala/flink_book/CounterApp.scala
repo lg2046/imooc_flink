@@ -1,6 +1,6 @@
-package imooc
+package flink_book
 
-import imooc.utils.Resource._
+import flink_book.utils.Resource._
 import org.apache.flink.api.common.accumulators.LongCounter
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.api.java.utils.ParameterTool
